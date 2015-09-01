@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB3058DB1B5083B000532D21 /* FallbackCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3058DA1B5083B000532D21 /* FallbackCache.swift */; };
 		EB81B94E1B30A82F00DAFFA9 /* ReactiveSearcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EB81B94D1B30A82F00DAFFA9 /* ReactiveSearcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EB81B9541B30A82F00DAFFA9 /* ReactiveSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB81B9481B30A82F00DAFFA9 /* ReactiveSearcher.framework */; };
 		EB81B95B1B30A82F00DAFFA9 /* ReactiveSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB81B95A1B30A82F00DAFFA9 /* ReactiveSearcherTests.swift */; };
@@ -15,9 +16,6 @@
 		EB81B96F1B30AAA200DAFFA9 /* ReactiveCocoa+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB81B96E1B30AAA200DAFFA9 /* ReactiveCocoa+Extensions.swift */; };
 		EB81B9711B30AAF000DAFFA9 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB81B9701B30AAF000DAFFA9 /* Cache.swift */; };
 		EB81B9731B30AB2D00DAFFA9 /* CachedSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB81B9721B30AB2D00DAFFA9 /* CachedSearcher.swift */; };
-		EB81B9771B30ABA400DAFFA9 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB81B9741B30ABA400DAFFA9 /* Box.framework */; };
-		EB81B9781B30ABA400DAFFA9 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB81B9751B30ABA400DAFFA9 /* ReactiveCocoa.framework */; };
-		EB81B9791B30ABA400DAFFA9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB81B9761B30ABA400DAFFA9 /* Result.framework */; };
 		EB81B97B1B30ABFA00DAFFA9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB81B97A1B30ABFA00DAFFA9 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB3058DA1B5083B000532D21 /* FallbackCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallbackCache.swift; sourceTree = "<group>"; };
 		EB81B9481B30A82F00DAFFA9 /* ReactiveSearcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveSearcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB81B94C1B30A82F00DAFFA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB81B94D1B30A82F00DAFFA9 /* ReactiveSearcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactiveSearcher.h; sourceTree = "<group>"; };
@@ -54,9 +53,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB81B9791B30ABA400DAFFA9 /* Result.framework in Frameworks */,
-				EB81B9771B30ABA400DAFFA9 /* Box.framework in Frameworks */,
-				EB81B9781B30ABA400DAFFA9 /* ReactiveCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +90,7 @@
 			children = (
 				EB81B96B1B30A97600DAFFA9 /* Frameworks */,
 				EB81B9691B30A96800DAFFA9 /* Searcher.swift */,
+				EB3058DA1B5083B000532D21 /* FallbackCache.swift */,
 				EB81B9701B30AAF000DAFFA9 /* Cache.swift */,
 				EB81B9721B30AB2D00DAFFA9 /* CachedSearcher.swift */,
 				EB81B96C1B30AA3400DAFFA9 /* Protocols.swift */,
@@ -250,6 +247,7 @@
 				EB81B96A1B30A96800DAFFA9 /* Searcher.swift in Sources */,
 				EB81B97B1B30ABFA00DAFFA9 /* Extensions.swift in Sources */,
 				EB81B96D1B30AA3400DAFFA9 /* Protocols.swift in Sources */,
+				EB3058DB1B5083B000532D21 /* FallbackCache.swift in Sources */,
 				EB81B9711B30AAF000DAFFA9 /* Cache.swift in Sources */,
 				EB81B96F1B30AAA200DAFFA9 /* ReactiveCocoa+Extensions.swift in Sources */,
 				EB81B9731B30AB2D00DAFFA9 /* CachedSearcher.swift in Sources */,
@@ -451,6 +449,7 @@
 				EB81B9601B30A82F00DAFFA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB81B9611B30A82F00DAFFA9 /* Build configuration list for PBXNativeTarget "ReactiveSearcherTests" */ = {
 			isa = XCConfigurationList;
@@ -459,6 +458,7 @@
 				EB81B9631B30A82F00DAFFA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

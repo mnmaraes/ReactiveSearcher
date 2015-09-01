@@ -23,22 +23,26 @@ public struct CachedSearcher<SearcherType: ReactiveSearcher, CacheType: Reactive
     public var searcherErrors: Signal<Error, NoError> { return searcher.searcherErrors }
 
     public var updateSignal: Signal<CacheUpdate<Key, [ResultType]>, NoError> { return cache.updateSignal }
-    public var querySignal: Signal<(Key, [ResultType]?), NoError> { return cache.querySignal }
     public var valueSignal: Signal<[Key: [ResultType]], NoError> { return cache.valueSignal }
+
+    public var querySignal: Signal<(Key, [ResultType]?), NoError> { return cache.querySignal }
+
+    public var hitSignal: Signal<(Key, [ResultType]), NoError> { return cache.hitSignal }
+    public var missSignal: Signal<Key, NoError> { return cache.missSignal }
 
     public init(searcher: SearcherType, cache: CacheType) {
         self.searcher = searcher
         self.cache = cache
 
         //Search on Cache Misses
-        cache.querySignal |> filter { $1 == nil } |> observe(next: { searcher.search($0.0) })
+        cache.missSignal |> observe(next: { searcher.search($0) })
 
         //Update Cache on Successful Searches
         searcher.searcherResults |> observe(next: { cache.updateValue($1, forKey: $0) } )
 
         self.searcherResults = Signal { sink in
             //Send Results on Cache hits and Search Successes
-            cache.querySignal |> filter { $1 != nil } |> map { ($0, $1!) } |> observe(sink)
+            cache.hitSignal |> observe(sink)
             searcher.searcherResults |> observe(sink)
 
             return nil
@@ -59,5 +63,9 @@ public struct CachedSearcher<SearcherType: ReactiveSearcher, CacheType: Reactive
 
     public func invalidateValueForKey(key: Key) {
         cache.invalidateValueForKey(key)
+    }
+
+    public func invalidateCache() {
+        cache.invalidateCache()
     }
 }

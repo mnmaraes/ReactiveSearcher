@@ -15,7 +15,7 @@ public struct Searcher<Key, ResultType, Error: ErrorType>: ReactiveSearcher {
     public var searcherResults: Signal<(Key, [ResultType]), NoError> { return searchAction.values }
     public var searcherErrors: Signal<Error, NoError> { return searchAction.errors }
 
-    public init(searchingFunction: Key -> SignalProducer<[ResultType], Error>) {
+    public init(_ searchingFunction: Key -> SignalProducer<[ResultType], Error>) {
         self.searchAction = Action { input in
             return searchingFunction(input)
                 |> map { (input, $0) }
